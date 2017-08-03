@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<script src="../core/core.polyfills.js" type="text/javascript"></script>
+	<script src="../core/core.extensions.js" type="text/javascript"></script>
+
+	<link href="cfw-autocomplete.css" rel="stylesheet" type="text/css">
+	<script src="cfw-autocomplete.js" type="text/javascript"></script>
+	<title>Autocomplete</title>
+</head>
+<body>
+
+<h1>PV Autocomplete</h1>
+
+Example: <input type="text" id="example"> (type "ia")
+
+<script>
+(function () {
+	var a = new Autocomplete(example, {
+		data: ["Romania", "Russia", "Australia", "Bulgaria"],
+		minTermLength: 2
+	});
+})();
+</script>
+
+</body>
+</html>

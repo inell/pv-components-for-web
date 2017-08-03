@@ -1,0 +1,36 @@
+@import "_variables";
+
+.pv-autocomplete
+{
+	&.wrapper
+	{
+		display: inline-block;
+		position: relative;
+	}
+
+	.suggestions 
+	{
+		position: absolute;
+		top: 100%;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		.suggestions-box();
+
+		> div 
+		{
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			padding: 10px;
+			cursor: pointer;
+
+			&.__active
+			{
+				.active-item();
+			}
+		}
+	}
+}

@@ -1,0 +1,28 @@
+.pv-autocomplete.wrapper {
+  display: inline-block;
+  position: relative;
+}
+.pv-autocomplete .suggestions {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  border: 1px solid #000;
+  background-color: #fff;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+.pv-autocomplete .suggestions > div {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 10px;
+  cursor: pointer;
+}
+.pv-autocomplete .suggestions > div.__active {
+  background-color: #f3f3f3;
+}
