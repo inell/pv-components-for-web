@@ -2,8 +2,14 @@
 	var self;
 	var wrapperEl = null;
 	var suggestEl = null;
-	var activeClassName = "__active";
 	var xhr;
+	
+	var classes = {
+		active: "__active",
+		wrapper: "wrapper",
+		base: "pv-autocomplete",
+		items: "suggestions"
+	}
 
 	function __constructor(inputEl, options) {
 		self = this;
@@ -79,7 +85,7 @@
 		 */
 		function wrap() {
 			wrapperEl = document.createElement('DIV');
-			wrapperEl.className = "pv-autocomplete wrapper";
+			wrapperEl.className = classes.base + " " + classes.wrapper;
 
 			self._input.parentNode.insertBefore(wrapperEl, self._input.nextSibling);
 			wrapperEl.appendChild(self._input);
@@ -91,11 +97,11 @@
 		 */
 		function highlightItem(suggestion) {
 			//Убираем подсветку у имеющихся елементов
-			Array.prototype.forEach.call(suggestEl.querySelectorAll("." + activeClassName), function (item) {
-				csshelper.removeClass(item, activeClassName);
+			Array.prototype.forEach.call(suggestEl.querySelectorAll("." + classes.active), function (item) {
+				csshelper.removeClass(item, classes.active);
 			});
 			//Устанавливаем подстветку на текущем
-			csshelper.addClass(suggestion, activeClassName);
+			csshelper.addClass(suggestion, classes.active);
 		}
 
 		/************************/
@@ -132,7 +138,7 @@
 
 		if (!suggestEl) {
 			suggestEl = document.createElement('DIV');
-			suggestEl.className = "suggestions";
+			suggestEl.className = classes.items;
 			wrapperEl.appendChild(suggestEl);
 		} else {
 			//Очищаем текущий список
@@ -177,7 +183,7 @@
 				optEl.setAttribute('data-value', data[i]);
 				optEl.innerText = data[i];
 				if (i === 0)
-					optEl.className = activeClassName;
+					optEl.className = classes.active;
 				suggestEl.appendChild(optEl);
 			}
 
@@ -218,7 +224,7 @@
 		var optionsEls = suggestEl.getElementsByTagName('DIV');
 		if (optionsEls.length === 0)
 			return;
-		var selectedEl = suggestEl.querySelector("." + activeClassName);
+		var selectedEl = suggestEl.querySelector("." + classes.active);
 		if (!selectedEl)
 			selectedEl = optionsEls[0];
 
@@ -229,8 +235,8 @@
 			var nextIndex = (currentIndex - 1 >= 0) ? currentIndex - 1 : optionsEls.length - 1;
 		}
 
-		csshelper.removeClass(optionsEls[currentIndex], activeClassName);
-		csshelper.addClass(optionsEls[nextIndex], activeClassName);
+		csshelper.removeClass(optionsEls[currentIndex], classes.active);
+		csshelper.addClass(optionsEls[nextIndex], classes.active);
 	}
 
 	/************************/
@@ -240,7 +246,7 @@
 	__constructor.prototype.selectItem = function () {
 		if (!suggestEl)
 			return;
-		var suggestionEl = suggestEl.querySelector("." + activeClassName);
+		var suggestionEl = suggestEl.querySelector("." + classes.active);
 		if (suggestionEl != null) {
 			self._input.value = suggestionEl.getAttribute('data-value');
 			self.closeSuggest();

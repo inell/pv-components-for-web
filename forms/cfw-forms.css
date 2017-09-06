@@ -1,0 +1,27 @@
+.pv-forms input[type=text],
+.pv-forms input[type=search],
+.pv-forms textarea {
+  padding: 10px;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  box-shadow: 0 1px 1px #cccccc inset;
+  -webkit-box-shadow: 0 1px 1px #cccccc inset;
+  -moz-box-shadow: 0 1px 1px #cccccc inset;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  transition: box-shadow 0.2s linear;
+  -webkit-transition: -webkit-box-shadow 0.2s linear;
+  -o-transition: -moz-box-shadow 0.2s linear;
+}
+.pv-forms input[type=text]:focus,
+.pv-forms input[type=search]:focus,
+.pv-forms textarea:focus {
+  outline: none;
+  border-color: #e8c291;
+  box-shadow: 0 0 0 transparent inset, 0 0 5px 0 #e8c291;
+  -webkit-box-shadow: 0 0 0 transparent inset, 0 0 5px 0 #e8c291;
+  -moz-box-shadow: 0 0 0 transparent inset, 0 0 5px 0 #e8c291;
+}
