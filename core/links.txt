@@ -2,5 +2,4 @@ http://ondras.github.io/ie8eventtarget/
 https://gist.github.com/jonathantneal/3748027
 http://olicomber.co.uk/blog/b/Simulating_bind_for_IE8_using_call_and_apply/
 http://stackoverflow.com/questions/3755227/cross-browser-javascript-getattribute-method
-
 http://polyfill.webservices.ft.com/v2/docs/features/
