@@ -1,6 +1,53 @@
 @padding: 10px;
-@background-color: #FFF;
 
+@border-width: 1px;
 @border-radius: 5px;
 @border-focus-color: #E8C291;
-@border-color: #CCC;
+
+.config-checkbox()
+{
+	@size: 25px;
+	@border-radius: @size / 5px;
+	@border-color: #CCC;
+
+	@color-normal: #FFF;
+	@color-checked: #E01D42;
+
+	@background-normal: #CDD1DA;
+	@background-checked: #DDD;
+};
+
+.config-input()
+{
+	@border-color: #CCC;
+	.box-shadow(0 1px 1px @border-color inset;);
+	border-color: @border-color;
+
+	//Different predefined INPUT styles
+	&.s-light
+	{
+		background-color: #FFF;
+		color: #000;
+	}
+};
+
+.config-btn()
+{
+	@border-color: #CCC;
+	.box-shadow(0 1px 1px @border-color);
+
+	//Different predefined BUTTON styles
+	&.s-default
+	{
+		color: #5E5E5E;
+		border-color: @border-color;
+		background-color: #F5F5F5;
+	}
+
+	//Different predefined BUTTON sizes
+	&.x-large
+	{
+		padding: 15px;
+		font-size: 1.2em;
+	}
+};

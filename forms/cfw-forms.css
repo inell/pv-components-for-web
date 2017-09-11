@@ -2,23 +2,211 @@
 .pv-forms input[type=search],
 .pv-forms textarea {
   padding: 10px;
-  background-color: #ffffff;
-  border: 1px solid #cccccc;
+  border-width: 1px;
+  border-style: solid;
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
-  box-shadow: 0 1px 1px #cccccc inset;
-  -webkit-box-shadow: 0 1px 1px #cccccc inset;
-  -moz-box-shadow: 0 1px 1px #cccccc inset;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   transition: box-shadow 0.2s linear;
   -webkit-transition: -webkit-box-shadow 0.2s linear;
   -o-transition: -moz-box-shadow 0.2s linear;
+  box-shadow: 0 1px 1px #cccccc inset;
+  -webkit-box-shadow: 0 1px 1px #cccccc inset;
+  -moz-box-shadow: 0 1px 1px #cccccc inset;
+  border-color: #cccccc;
 }
 .pv-forms input[type=text]:focus,
 .pv-forms input[type=search]:focus,
 .pv-forms textarea:focus {
+  outline: none;
+  border-color: #e8c291;
+  box-shadow: 0 0 0 transparent inset, 0 0 5px 0 #e8c291;
+  -webkit-box-shadow: 0 0 0 transparent inset, 0 0 5px 0 #e8c291;
+  -moz-box-shadow: 0 0 0 transparent inset, 0 0 5px 0 #e8c291;
+}
+.pv-forms input[type=text].s-light,
+.pv-forms input[type=search].s-light,
+.pv-forms textarea.s-light {
+  background-color: #FFF;
+  color: #000;
+}
+.pv-forms .btn {
+  display: inline-block;
+  padding: 8px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  transition: background-color 0.2s linear;
+  -webkit-transition: -webkit-background-color 0.2s linear;
+  -o-transition: -moz-background-color 0.2s linear;
+  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+  box-shadow: 0 1px 1px #cccccc;
+  -webkit-box-shadow: 0 1px 1px #cccccc;
+  -moz-box-shadow: 0 1px 1px #cccccc;
+}
+.pv-forms .btn.fa {
+  font-size: 1.2em;
+}
+.pv-forms .btn:active {
+  outline: 0;
+  background-image: none;
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125) !important;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125) !important;
+  -moz-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125) !important;
+}
+.pv-forms .btn:focus {
+  outline: none;
+  border-color: #e8c291;
+  box-shadow: 0 0 0 transparent inset, 0 0 5px 0 #e8c291;
+  -webkit-box-shadow: 0 0 0 transparent inset, 0 0 5px 0 #e8c291;
+  -moz-box-shadow: 0 0 0 transparent inset, 0 0 5px 0 #e8c291;
+}
+.pv-forms .btn[disabled] {
+  opacity: .5;
+  cursor: default;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+}
+.pv-forms .btn.s-default {
+  color: #5E5E5E;
+  border-color: #cccccc;
+  background-color: #F5F5F5;
+}
+.pv-forms .btn.x-large {
+  padding: 15px;
+  font-size: 1.2em;
+}
+.pv-forms input[type=checkbox],
+.pv-forms input[type=radio] {
+  position: absolute;
+  opacity: 0;
+}
+.pv-forms input[type=checkbox] + label,
+.pv-forms input[type=radio] + label {
+  cursor: pointer;
+  position: relative;
+}
+.pv-forms input[type=checkbox] + label:before,
+.pv-forms input[type=radio] + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -4.16666667px;
+  height: 25px;
+  border: 1px solid #cccccc;
+  transition: all .2s;
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+.pv-forms input[type=checkbox] + label:after,
+.pv-forms input[type=radio] + label:after {
+  transition: all .2s;
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+.pv-forms input[type=checkbox].s-slide + label,
+.pv-forms input[type=radio].s-slide + label {
+  padding: 0 0 0 55px;
+}
+.pv-forms input[type=checkbox].s-slide + label:before,
+.pv-forms input[type=radio].s-slide + label:before {
+  width: 50px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  background-color: #cdd1da;
+}
+.pv-forms input[type=checkbox].s-slide + label:after,
+.pv-forms input[type=radio].s-slide + label:after {
+  content: '';
+  position: absolute;
+  left: 2.08333333px;
+  top: -2.08333333px;
+  width: 20.83333333px;
+  height: 20.83333333px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+.pv-forms input[type=checkbox].s-slide:checked + label:before,
+.pv-forms input[type=radio].s-slide:checked + label:before {
+  background-color: #dddddd;
+}
+.pv-forms input[type=checkbox].s-slide:checked + label:after,
+.pv-forms input[type=radio].s-slide:checked + label:after {
+  left: 27.08333333px;
+  background-color: #e01d42;
+}
+.pv-forms input[type=checkbox].s-tick + label,
+.pv-forms input[type=radio].s-tick + label {
+  padding: 0 0 0 30px;
+}
+.pv-forms input[type=checkbox].s-tick + label:before,
+.pv-forms input[type=radio].s-tick + label:before {
+  width: 25px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+}
+.pv-forms input[type=checkbox].s-tick + label:after,
+.pv-forms input[type=radio].s-tick + label:after {
+  opacity: 0;
+  content: '';
+  position: absolute;
+  left: 8.33333333px;
+  width: 8.33333333px;
+  height: 16.66666667px;
+  transform: rotate(45deg);
+  border: solid #e01d42;
+  border-width: 0 3.125px 3.125px 0;
+}
+.pv-forms input[type=checkbox].s-tick:checked + label:after,
+.pv-forms input[type=radio].s-tick:checked + label:after {
+  opacity: 1;
+}
+.pv-forms input[type=checkbox].s-dot + label,
+.pv-forms input[type=radio].s-dot + label {
+  padding: 0 0 0 30px;
+}
+.pv-forms input[type=checkbox].s-dot + label:before,
+.pv-forms input[type=radio].s-dot + label:before {
+  width: 25px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+}
+.pv-forms input[type=checkbox].s-dot + label:after,
+.pv-forms input[type=radio].s-dot + label:after {
+  content: '';
+  position: absolute;
+  left: 6.25px;
+  top: 2.08333333px;
+  width: 12.5px;
+  height: 12.5px;
+  background: #e01d42;
+  border-radius: 50%;
+  opacity: 0;
+}
+.pv-forms input[type=checkbox].s-dot:checked + label:after,
+.pv-forms input[type=radio].s-dot:checked + label:after {
+  opacity: 1;
+}
+.pv-forms input[type=checkbox]:focus + label:before,
+.pv-forms input[type=radio]:focus + label:before {
   outline: none;
   border-color: #e8c291;
   box-shadow: 0 0 0 transparent inset, 0 0 5px 0 #e8c291;

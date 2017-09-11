@@ -2,22 +2,228 @@
 
 .pv-forms
 {
+	//***********************************
+	//	INPUTS
+	//***********************************
 	input[type=text], input[type=search], textarea
 	{
 		padding: @padding;
-		background-color: @background-color;
-		border: 1px solid @border-color;
+		border-width: @border-width;
+		border-style: solid;
 		.radius(@border-radius);
-		.box-shadow(0 1px 1px @border-color inset;);
 		.border-box();
 		.transition(box-shadow, .2s); //transition for focus
-		
-		&:focus
+
+		&:focus { .focus(); }
+
+		//Different predefined INPUT styles
+		.config-input();
+	}
+
+	//***********************************
+	//	BUTTONS
+	//***********************************
+	.btn
+	{
+		display: inline-block;
+		padding: @padding - 2px;
+		border: @border-width solid transparent;
+		.radius(@border-radius);
+		.transition(background-color, .2s); //transition for focus
+
+		cursor: pointer;
+		text-align: center;
+		vertical-align: middle;
+
+		//font awesome elements
+		&.fa
 		{
-			outline: none;
-			border-color: @border-focus-color;
-			.box-shadow(0 0 0 transparent inset, 0 0 5px 0 @border-focus-color;);
+			font-size: 1.2em;
 		}
+
+		&:active
+		{
+			outline: 0;
+			background-image: none;
+			.box-shadow(inset 0 3px 5px rgba(0,0,0,.125);) !important; //push simulation
+		}
+		&:focus { .focus(); }
+		&[disabled]
+		{
+			opacity: .5;
+			cursor: default;
+			.box-shadow(none);
+		}
+
+		//Different predefined BUTTON styles
+		.config-btn();
+	}
+
+	//***********************************
+	//	CHECKBOXES
+	//***********************************
+	input[type=checkbox], input[type=radio]
+	{
+		.config-checkbox();
+		@padding: @size / 6;
+		position: absolute;
+		opacity: 0;
+
+		&+label
+		{
+			cursor: pointer;
+			position: relative;
+		}
+		&+label:before
+		{
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0 - @padding;
+			height: @size;
+			border: @border-width solid @border-color;
+			transition: all .2s;
+			-webkit-transition: all .2s;
+			-o-transition: all .2s;
+			.border-box();
+		}
+		&+label:after
+		{
+			transition: all .2s;
+			-webkit-transition: all .2s;
+			-o-transition: all .2s;
+			.border-box();
+		}
+
+		//Slide checkbox
+		&.s-slide
+		{
+			&+label
+			{
+				padding: 0 0 0 @size * 2 + 5;
+			}
+			&+label:before
+			{
+				width: @size * 2;
+				.radius(@border-radius);
+				background-color: @background-normal;
+			}
+			&+label:after
+			{
+				content: '';
+				position: absolute;
+				left: @padding / 2;
+				top: 0 - @padding / 2;
+				width: @size - @padding;
+				height: @size - @padding;
+				.radius(@border-radius);
+				background-color: @color-normal;
+				.box-shadow(0 2px 5px rgba(0,0,0,.3););
+			}
+			&:checked
+			{
+				&+label:before
+				{
+					background-color: @background-checked;
+				}
+				&+label:after
+				{
+					left: @size + @padding / 2;
+					background-color: @color-checked;
+				}
+			}
+		}
+
+		//Tick checkbox
+		&.s-tick
+		{
+			&+label
+			{
+				padding: 0 0 0 @size + 5;
+			}
+			
+			&+label:before
+			{
+				width: @size;
+				.radius(@border-radius);
+			}
+			&+label:after
+			{
+				@border-thick: @size / 8;
+				opacity: 0;
+				content: '';
+				position: absolute;
+				left: @size / 3;
+				width: @size / 3;
+				height: @size / 1.5;
+				transform: rotate(45deg);
+				border: solid @color-checked;
+				border-width: 0 @border-thick @border-thick 0;
+			}
+
+			&:checked 
+			{
+				&+label:before
+				{
+				}
+				&+label:after
+				{
+					opacity: 1;
+				}
+			}
+		}
+		
+		&.s-dot
+		{
+			&+label
+			{
+				padding: 0 0 0 @size + 5;
+			}
+			&+label:before
+			{
+				width: @size;
+				.radius(50%);
+			}
+			&+label:after
+			{
+				@dot-size: @size - @padding * 3;
+				content: '';
+				position: absolute;
+				left: @size / 2 - @dot-size / 2;
+				top: @size / 2 - @dot-size / 1.2;
+				width: @dot-size;
+				height: @dot-size;
+
+				background: @color-checked;
+				border-radius: 50%;
+				opacity: 0;
+			}
+			&:checked 
+			{
+				&+label:before
+				{
+				}
+				&+label:after
+				{
+					opacity: 1;
+				}
+			}
+		}
+
+		&:focus + label:before { .focus(); }
+	}
+	
+	input[type=radio]
+	{
+
+	}
+
+	//Focus on elements
+	.focus()
+	{
+		outline: none;
+		border-color: @border-focus-color;
+		.box-shadow(0 0 0 transparent inset, 0 0 5px 0 @border-focus-color;);
 	}
 }
 
